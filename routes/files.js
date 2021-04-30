@@ -83,7 +83,7 @@ router.post('/send', async (req, res) => {
             return res.status(422).json({ error: 'Error in email sending' });
         });
     } catch (err) {
-        return res.status(500).send({ error: 'Something went wrong.' });
+        return res.status(500).send({ error: 'Something went wrong. So please check your connection' });
     }
 });
 
