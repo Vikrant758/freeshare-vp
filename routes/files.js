@@ -38,7 +38,7 @@ router.post('/', (req, res) => {
         });
 
         const responce = await file.save();
-        return res.json({ file: `${process.env.APP_BASE_URL}files/${responce.uuid}}` });
+        return res.json({ file: `${process.env.APP_BASE_URL}/files/${responce.uuid}}` });
 
     });
 });
@@ -73,7 +73,7 @@ router.post('/send', async (req, res) => {
             text: `${emailFrom} shared file with you.`,
             html: require('../services/emailTemplate')({
                 emailFrom: emailFrom,
-                downloadLink: `${process.env.APP_BASE_URL}files/${file.uuid}`,
+                downloadLink: `${process.env.APP_BASE_URL}/files/${file.uuid}`,
                 size: parseInt(file.size) / 1000 + 'KB',
                 expires: '24 Hours'
             })
